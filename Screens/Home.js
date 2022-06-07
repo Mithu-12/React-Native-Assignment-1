@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, Image, ScrollView} from 'react-native'
+import { View, Text, StyleSheet, Image, ScrollView, Pressable} from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Header from '../Component/Header'
 import { MaterialIcons } from '@expo/vector-icons';
@@ -8,7 +8,7 @@ import { Feather } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 // import {LinearGradient} from 'expo-linear-gradient';
 
-export default function Home() {
+export default function Home({navigation}) {
   return (
     <ScrollView>
       <SafeAreaView >
@@ -35,10 +35,12 @@ export default function Home() {
           <Ionicons style = {{color: '#fff'}} name="ios-call" size={24} color="black" />
           <Text style={{color: '#fff', marginLeft: 5}}>Call Now</Text>
           </View>
+          <Pressable >
           <View style={styles.message1}>
           <Feather style = {{color: '#fff'}} name="message-circle" size={24} color="black" />
-          <Text style = {{color: '#fff', marginLeft: 5}}>Send Message</Text>
+          <Text  onPress={()=>{navigation.navigate('Details')}}  style = {{color: '#fff', marginLeft: 5}}>Send Message</Text>
           </View>
+          </Pressable>
         </View>
         </View>
       </View>
